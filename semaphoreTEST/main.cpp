@@ -28,7 +28,7 @@ void toggleCase(char *buf, int cnt);
 
 int main()
 {
-    semaphore = dispatch_semaphore_create(0);
+    semaphore = dispatch_semaphore_create(1);
 //    printf("semaphore value %ld\n",semaphore);
     pthread_t thrd1;
     char argmsg1[] = "Thread1: Waiting\n";
@@ -40,7 +40,7 @@ int main()
     //  res = sem_init(&sem2, 0,0);
     
     pthread_create(&thrd1, NULL, thrdFun1, argmsg1);
-    dispatch_semaphore_signal(semaphore);
+    //dispatch_semaphore_signal(semaphore);
     while(1)
     {
         if (coin==0)
